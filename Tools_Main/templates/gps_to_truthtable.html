@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="form-container">
+    <h1>GPS to TruthTable</h1>
+    <form method="POST">
+        <label for="folder_path">Folder Path:</label>
+        <input type="text" id="folder_path" name="folder_path" placeholder="Enter folder path..." required><br>
+
+        <label for="save_path">Save Path:</label>
+        <input type="text" id="save_path" name="save_path" placeholder="Enter save path..." required><br>
+
+        <label for="site_name">Site Name:</label>
+        <input type="text" id="site_name" name="site_name" placeholder="Enter site name..." required><br>
+
+        <label for="table_type">Table Type:</label>
+        <input type="number" id="table_type" name="table_type" placeholder="0 = GPS , 1 = Truth ..." required><br>
+
+        <div class="button-container">
+            <input type="submit" value="Go">
+        </div>
+    </form>
+</div>
+{% endblock %}
+table_type

@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="form-container">
+    <h1>PSD Analysis</h1>
+    <form method="POST">
+        <label for="folder_path">Recording Path:</label>
+        <input type="text" id="folder_path" name="folder_path" placeholder="Enter recording path..." required><br>
+
+        <label for="td_seconds">Time Delta (seconds):</label>
+        <input type="number" id="td_seconds" name="td_seconds" value="1" placeholder="Enter time delta..." required><br>
+
+        <label for="low_freq">Low Frequency (Hz):</label>
+        <input type="number" step="0.1" id="low_freq" name="low_freq" value="1" placeholder="Enter low frequency..." required><br>
+
+        <label for="high_freq">High Frequency (Hz):</label>
+        <input type="number" step="0.1" id="high_freq" name="high_freq" value="30" placeholder="Enter high frequency..." required><br>
+
+        <label for="n">N (Breaks between tests - in seconds):</label> <!-- New field for `n` -->
+        <input type="number" id="n" name="n" value="1800" placeholder="Enter N value..." required><br>
+
+        <div class="button-container">
+            <input type="submit" value="Run Analysis">
+        </div>
+    </form>
+</div>
+
+<!-- Full-width container for the plot -->
+<div class="plot-container" style="width: 100%; margin-top: 20px;">
+    {% if plot_html %}
+        <div style="width: 100%; height: 80vh;">
+            <a href="{{ url_for('open_plot', folder_path=request.form.folder_path,
+             td_seconds=request.form.td_seconds, low_freq=request.form.low_freq,
+             high_freq=request.form.high_freq, n=request.form.n) }}"
+               target="_blank">Open Graph in New Window</a>
+            <div>{{ plot_html | safe }}</div>
+        </div>
+
+        <div style="margin-top: 20px;">
+            <a href="{{ url_for('download_csv') }}" class="btn btn-primary">Download CSV</a>
+        </div>
+    {% endif %}
+</div>
+{% endblock %}

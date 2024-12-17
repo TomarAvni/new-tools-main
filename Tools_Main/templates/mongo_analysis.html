@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="form-container">
+    <h1>Mongo Analysis</h1>
+    <form method="POST">
+        <label for="mongo_file_path"> Mongo file path (csv\json\xlsx - for filtered mongo):</label>
+        <input type="text" id="mongo_file_path" name="mongo_file_path" placeholder="Enter mongo path..." required><br>
+
+        <label for="save_path">Saving path:</label>
+        <input type="text" id="save_path" name="save_path" placeholder="Enter the saving location..." required><br>
+
+        <label>
+            <input type="radio" name="Dof_method" value="Automatic top _ most active" checked>
+            Automatic top _ most active
+        </label>
+
+        <label>
+            <input type="radio" name="Dof_method" value="Manual DoFs">
+            Manual DoFs
+        </label><br>
+
+        <label for="dof_input">DoFs input:</label>
+        <input type="text" id="dof_input" name="dof_input" placeholder="[1000,2000,3000] \ (3) (5)  " required><br>
+
+        <label for="bin_size">Bin size:</label>
+        <input type="text" id="bin_size" name="bin_size" placeholder="50 \ 100 \ 200 (m)" required><br>
+
+        <label>
+            <input type="radio" name="client" value="Eagle">
+            Eagle
+        </label>
+
+        <label>
+            <input type="radio" name="client" value="Dove" checked>
+            Dove
+        </label>
+
+        <label>
+            <input type="radio" name="client" value="Flow">
+            Flow
+        </label>
+
+        <label>
+            <input type="radio" name="client" value="Power">
+            Power
+        </label><br>
+
+            <div class="button-container">
+                <input type="submit" value="Go">
+            </div>
+        </form>
+</div>
+{% endblock %}

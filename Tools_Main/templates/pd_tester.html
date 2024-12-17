@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="form-container">
+    <h1>PD Tester</h1>
+    <form method="POST">
+        <label for="mongo_file_path">Mongo File Path:</label>
+        <input type="text" id="mongo_file_path" name="mongo_file_path" placeholder="Enter mongo file path..." required><br>
+
+        <label for="truth_table_path">Truth Table Path:</label>
+        <input type="text" id="truth_table_path" name="truth_table_path" placeholder="Enter truth table path..." required><br>
+
+        <label for="save_path">Save Path:</label>
+        <input type="text" id="save_path" name="save_path" placeholder="Enter save path..." required><br>
+
+        <label for="site_name">Site Name:</label>
+        <input type="text" id="site_name" name="site_name" placeholder="Enter site name..." required><br>
+
+        <label for="dof_diff">DOF Diff:</label>
+        <input type="number" id="dof_diff" name="dof_diff" placeholder="Enter DOF difference..." required><br>
+
+        <div class="button-container">
+            <input type="submit" value="Go">
+        </div>
+    </form>
+</div>
+{% endblock %}

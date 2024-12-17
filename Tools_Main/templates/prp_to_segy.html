@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="form-container">
+    <h1>PRP to SEGY</h1>
+    <form method="POST">
+        <label for="folder_location">Folder Location:</label>
+        <input type="text" id="folder_location" name="folder_location" placeholder="Enter folder path..." required><br>
+
+        <label for="destination_folder">Destination Folder Location:</label>
+        <input type="text" id="destination_folder" name="destination_folder" placeholder="Enter destination path..." required><br>
+
+
+        <label for="limit_duration">Limit Duration</label>
+        <input type="number" id="limit_duration" name="limit_duration" placeholder="Enter limit duration (only numbers)..." required><br>
+
+        <div class="button-container">
+            <input type="submit" value="Go">
+        </div>
+    </form>
+</div>
+{% endblock %}
